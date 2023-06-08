@@ -25,6 +25,7 @@ class Planet_Model {
   String EscapeVelocity;
   String AtmosphericConstituents;
   String Rings;
+  bool favourite;
 
   Planet_Model({
     required this.id,
@@ -53,6 +54,7 @@ class Planet_Model {
     required this.EscapeVelocity,
     required this.AtmosphericConstituents,
     required this.Rings,
+    required this.favourite,
   });
 
   factory Planet_Model.frommap({required Map data}) {
@@ -83,6 +85,7 @@ class Planet_Model {
       EscapeVelocity: data['Escape Velocity(km/h)'],
       AtmosphericConstituents: data['Atmospheric Constituents'],
       Rings: data['Rings'],
+      favourite: data['favourite'],
     );
   }
 }

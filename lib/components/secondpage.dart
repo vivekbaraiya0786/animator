@@ -3,8 +3,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../modals/planet_model.dart';
 import '../provider/controller/Planet_provider.dart';
 import 'Theme_provider.dart';
+import 'favourite_page.dart';
 
 class SecondPage extends StatefulWidget {
   const SecondPage({Key? key}) : super(key: key);
@@ -19,7 +21,7 @@ class _SecondPageState extends State<SecondPage>
   int selectedIndex = 1;
   int selectedIndex1 = 1;
 
-  List<dynamic> favoriteList = [];
+
 
   @override
   void initState() {
@@ -38,10 +40,13 @@ class _SecondPageState extends State<SecondPage>
 
   @override
   Widget build(BuildContext context) {
+    Favourite_Provider favouriteTrue = Provider.of(context);
+    Favourite_Provider favouriteFalse = Provider.of(context,listen: false);
+
     Size size = MediaQuery.of(context).size;
     double _height = size.height;
     double _width = size.width;
-    dynamic data = ModalRoute.of(context)!.settings.arguments;
+    int data = ModalRoute.of(context)!.settings.arguments as int;
 
     return Scaffold(
       resizeToAvoidBottomInset: false,
@@ -145,14 +150,45 @@ class _SecondPageState extends State<SecondPage>
                         ],
                       ),
                       IconButton(
-                        onPressed: () {},
-                        icon: Icon(
-                          CupertinoIcons.heart_fill,
-                          color: favoriteList.contains(data)
-                              ? Colors.red
-                              : Colors.grey,
+                        onPressed: () {
+                          Planet_Model planet = Provider.of<PlanetProvider>(context, listen: false).Planet[data];
+                          if (favouriteFalse.favourite.contains(planet)) {
+                            favouriteFalse.removeToFavourite(added: planet);
+                          } else {
+                            favouriteFalse.addToFavourite(added: planet);
+                          }
+                        },
+                        icon: Consumer<PlanetProvider>(
+                          builder: (context, planetProvider, _) {
+                            bool isFavorite = planetProvider.Planet.contains(planetProvider.Planet[data]);
+                            return Icon(
+                              CupertinoIcons.heart_fill,
+                              color: isFavorite ? CupertinoColors.destructiveRed : CupertinoColors.white,
+                            );
+                          },
                         ),
                       ),
+                      // IconButton(
+                      //   onPressed: (){
+                      //     // data.favourite = !data.favourite;
+                      //     // setState(() {});
+                      //     // if(data.favourite == true)
+                      //     // {
+                      //     //   Provider.of<PlanetProvider>(context,listen: false).falseToTrue(i: data.id);
+                      //     // } else{
+                      //     //   Provider.of<PlanetProvider>(context,listen: false).Planet[data.id].favourite = false;
+                      //     // }
+                      //     // if(data.favourite == true)
+                      //     // {
+                      //     //   Provider.of<Favourite_Provider>(context,listen: false).addToFavourite(added: data);
+                      //     // }
+                      //     favouriteFalse.addToFavourite(added: Provider.of<PlanetProvider>(context,listen: false).Planet[data]);
+                      //   },
+                      //   icon: Icon(
+                      //     CupertinoIcons.heart_fill,
+                      //     // color: (data.favourite == false)?CupertinoColors.white:CupertinoColors.destructiveRed,
+                      //   ),
+                      // ),
                     ],
                   ),
                   SizedBox(

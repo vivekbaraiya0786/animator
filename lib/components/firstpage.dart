@@ -302,18 +302,13 @@ class _FirstpageState extends State<Firstpage>
                                                 .name,
                                             style: TextStyle(
                                               fontSize: 18,
-                                              
+
                                               fontWeight: FontWeight.bold,
                                             ),
                                           ),
-                                          IconButton(onPressed: () {
-                                            final planetProvider = Provider.of<PlanetProvider>(context, listen: false);
-                                            planetProvider.addToFavorites(index);
-                                            Navigator.of(context).pushNamed(
-                                              "favourite",
-                                              arguments: planetProvider.Planet[index], // Pass the selected planet as an argument
-                                            );
-                                          }, icon: Icon(CupertinoIcons.heart_fill,color: Colors.red,))
+                                          // IconButton(onPressed: () {
+                                          //
+                                          // }, icon: Icon(CupertinoIcons.heart_fill,color: Colors.red,))
                                         ],
                                       ),
                                     ),
@@ -334,7 +329,7 @@ class _FirstpageState extends State<Firstpage>
                                             .details1,
                                         style: TextStyle(
                                           fontSize: 14,
-                                          
+
                                           fontWeight: FontWeight.bold,
                                         ),
                                       ),
@@ -365,41 +360,4 @@ class _FirstpageState extends State<Firstpage>
   }
 }
 
-// body: SafeArea(
-//   child: Container(
-//     decoration: BoxDecoration(
-//         image: DecorationImage(
-//           image: AssetImage(
-//               "assets/bgimage/jeremy-thomas-E0AHdsENmDg-unsplash.jpg"),
-//           fit: BoxFit.cover,
-//         )),
-//     child: Column(
-//       mainAxisAlignment: MainAxisAlignment.center,
-//       children: [
-//         Expanded(
-//           child: AnimatedBuilder(
-//             animation: animationController,
-//             builder: (context, child) {
-//               return ListView(
-//                 scrollDirection: Axis.horizontal,
-//                 children: List.generate(
-//                   Provider.of<PlanetProvider>(context).Planet.length,
-//                       (index) {
-//                     return Transform.rotate(
-//                       angle: animationController.value * 2 * pi,
-//                       child: Image.asset(
-//                         "${Provider.of<PlanetProvider>(context).Planet[index].image}",
-//                         width: _width * 0.3,
-//                         height: _height * 0.3,
-//                       ),
-//                     );
-//                   },
-//                 ),
-//               );
-//             },
-//           ),
-//         ),
-//       ],
-//     ),
-//   ),
-// ),
+

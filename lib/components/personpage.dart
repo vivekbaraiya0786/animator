@@ -12,38 +12,37 @@ class PersonPage extends StatefulWidget {
 }
 
 class _PersonPageState extends State<PersonPage> {
+  bool notification = false;
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     double _height = size.height;
     double _width = size.width;
 
-    bool notification = false;
-
     return Scaffold(
       body: Container(
         padding: const EdgeInsets.all(12),
-        decoration:  BoxDecoration(
-            gradient: (Provider.of<ChangeThemeProvider>(context,
-                listen: true)
-                .changethemeModel
-                .isDark)
-                ?const LinearGradient(
-              colors: [
-                Color(0xff130320),
-                Color(0xff2a0d2b),
-              ],
-              begin: Alignment.topRight,
-              end: Alignment.bottomLeft,
-            )
-                :const LinearGradient(
-              colors: [
-                Colors.white,
-                Colors.black12,
-              ],
-              begin: Alignment.topRight,
-              end: Alignment.bottomLeft,
-            )),
+        decoration: BoxDecoration(
+            gradient: (Provider.of<ChangeThemeProvider>(context, listen: true)
+                    .changethemeModel
+                    .isDark)
+                ? const LinearGradient(
+                    colors: [
+                      Color(0xff130320),
+                      Color(0xff2a0d2b),
+                    ],
+                    begin: Alignment.topRight,
+                    end: Alignment.bottomLeft,
+                  )
+                : const LinearGradient(
+                    colors: [
+                      Colors.white,
+                      Colors.black12,
+                    ],
+                    begin: Alignment.topRight,
+                    end: Alignment.bottomLeft,
+                  )),
         child: Padding(
           padding: const EdgeInsets.only(
             top: 20,
@@ -55,19 +54,20 @@ class _PersonPageState extends State<PersonPage> {
               Row(
                 children: [
                   IconButton(
-                    onPressed: () {
-
-                    },
-                    icon: const Icon(Icons.keyboard_arrow_left,size: 30),
+                    onPressed: () {},
+                    icon: const Icon(Icons.keyboard_arrow_left, size: 30),
                   ),
                   SizedBox(
                     width: _height * 0.12,
                   ),
-                  Text("Settings",style: TextStyle(fontSize: 18),)
+                  Text(
+                    "Settings",
+                    style: TextStyle(fontSize: 18),
+                  )
                 ],
               ),
               SizedBox(
-                height: _height* 0.015,
+                height: _height * 0.015,
               ),
               const Card(
                 borderOnForeground: true,
@@ -76,10 +76,11 @@ class _PersonPageState extends State<PersonPage> {
                   child: Column(
                     children: [
                       ListTile(
-                        leading:  CircleAvatar(
+                        leading: CircleAvatar(
                           child: Icon(Icons.person),
                         ),
-                        title: Text("Vivek Baraiya",style: TextStyle(fontWeight: FontWeight.bold)),
+                        title: Text("Vivek Baraiya",
+                            style: TextStyle(fontWeight: FontWeight.bold)),
                         subtitle: Text("baraiyavivek48@gmail.com"),
                         trailing: Icon(Icons.chevron_right),
                       ),
@@ -104,7 +105,9 @@ class _PersonPageState extends State<PersonPage> {
                               SizedBox(
                                 width: _width * 0.03,
                               ),
-                              const Text("Notification",style: TextStyle(fontWeight: FontWeight.bold)),
+                              const Text("Notification",
+                                  style:
+                                      TextStyle(fontWeight: FontWeight.bold)),
                             ],
                           ),
                           Switch(
@@ -117,7 +120,6 @@ class _PersonPageState extends State<PersonPage> {
                           )
                         ],
                       ),
-
                       SizedBox(
                         height: _height * 0.01,
                       ),
@@ -134,7 +136,9 @@ class _PersonPageState extends State<PersonPage> {
                               SizedBox(
                                 width: _width * 0.03,
                               ),
-                              const Text("Dark Mode",style: TextStyle(fontWeight: FontWeight.bold)),
+                              const Text("Dark Mode",
+                                  style:
+                                      TextStyle(fontWeight: FontWeight.bold)),
                             ],
                           ),
                           Switch(
@@ -165,9 +169,12 @@ class _PersonPageState extends State<PersonPage> {
                       const Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("What's new",style: TextStyle(fontWeight: FontWeight.bold)),
-                          Icon(CupertinoIcons.arrow_up_right,size: 20,),
-
+                          Text("What's new",
+                              style: TextStyle(fontWeight: FontWeight.bold)),
+                          Icon(
+                            CupertinoIcons.arrow_up_right,
+                            size: 20,
+                          ),
                         ],
                       ),
                       SizedBox(
@@ -180,9 +187,12 @@ class _PersonPageState extends State<PersonPage> {
                       const Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("FAQs / Contact us",style: TextStyle(fontWeight: FontWeight.bold)),
-                          Icon(CupertinoIcons.arrow_up_right,size: 20,),
-
+                          Text("FAQs / Contact us",
+                              style: TextStyle(fontWeight: FontWeight.bold)),
+                          Icon(
+                            CupertinoIcons.arrow_up_right,
+                            size: 20,
+                          ),
                         ],
                       ),
                       SizedBox(
@@ -192,9 +202,12 @@ class _PersonPageState extends State<PersonPage> {
                       const Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("Community guidelines",style: TextStyle(fontWeight: FontWeight.bold)),
-                          Icon(CupertinoIcons.arrow_up_right,size: 20,),
-
+                          Text("Community guidelines",
+                              style: TextStyle(fontWeight: FontWeight.bold)),
+                          Icon(
+                            CupertinoIcons.arrow_up_right,
+                            size: 20,
+                          ),
                         ],
                       ),
                       SizedBox(
@@ -204,9 +217,12 @@ class _PersonPageState extends State<PersonPage> {
                       const Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("Terms of condition",style: TextStyle(fontWeight: FontWeight.bold)),
-                          Icon(CupertinoIcons.arrow_up_right,size: 20,),
-
+                          Text("Terms of condition",
+                              style: TextStyle(fontWeight: FontWeight.bold)),
+                          Icon(
+                            CupertinoIcons.arrow_up_right,
+                            size: 20,
+                          ),
                         ],
                       ),
                       SizedBox(
@@ -216,12 +232,14 @@ class _PersonPageState extends State<PersonPage> {
                       const Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("Privacy policies",style: TextStyle(fontWeight: FontWeight.bold)),
-                          Icon(CupertinoIcons.arrow_up_right,size: 20,),
-
+                          Text("Privacy policies",
+                              style: TextStyle(fontWeight: FontWeight.bold)),
+                          Icon(
+                            CupertinoIcons.arrow_up_right,
+                            size: 20,
+                          ),
                         ],
                       ),
-
                     ],
                   ),
                 ),

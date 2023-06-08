@@ -32,7 +32,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   final List<Widget> bottomBarPages = [
     const Firstpage(),
-    const FavouritePage(),
+    FavoritePage(),
     const PersonPage(),
   ];
 
@@ -111,32 +111,3 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-// class Page1 extends StatelessWidget {
-//   const Page1({Key? key}) : super(key: key);
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//         color: Colors.yellow, child: const Center(child: Text('Page 1')));
-//   }
-// }
-//
-// class Page2 extends StatelessWidget {
-//   const Page2({Key? key}) : super(key: key);
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//         color: Colors.green, child: const Center(child: Text('Page 2')));
-//   }
-// }
-//
-// class Page3 extends StatelessWidget {
-//   const Page3({Key? key}) : super(key: key);
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//         color: Colors.red, child: const Center(child: Text('Page 3')));
-//   }
-// }
